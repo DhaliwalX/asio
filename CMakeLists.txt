@@ -8,6 +8,8 @@ if (NOT Boost_FOUND)
     message (FATAL_ERROR "Boost not found")
 endif()
 
+find_package (Threads REQUIRED)
+
 set (Boost_USE_MULTITHREAD ON)
 
 foreach (filename ${inputfiles})
@@ -15,5 +17,6 @@ foreach (filename ${inputfiles})
     string (REPLACE "${CMAKE_SOURCE_DIR}/" "" outputfile ${outputfile})
     add_executable ("${outputfile}" "${filename}")
     target_link_libraries ("${outputfile}" ${Boost_LIBRARIES})
+    target_link_libraries ("${outputfile}" Threads::Threads)
 endforeach(filename ${inputfiles})
 
