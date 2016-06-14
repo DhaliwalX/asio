@@ -6,7 +6,9 @@ matrix:
       compiler: gcc
       addons:
         apt:
-          packages: ['g++', 'cmake']
+          sources: 
+           - boost-latest
+          packages: ['g++', 'cmake', 'libboost1.55-all-dev']
         coverity_scan:
           project:
             name: "PrinceDhaliwal/asio"
@@ -14,7 +16,6 @@ matrix:
           notification_email: dhaliwalprince@hotmail.com
           build_command_prepend: "make clean"
           build_command: "make"
-          branch_pattern: coverity_scan
       env:
 
 script:
