@@ -8,7 +8,8 @@ matrix:
         apt:
           sources: 
            - boost-latest
-          packages: ['g++', 'cmake', 'libboost1.55-all-dev']
+           - ubuntu-toolchain-r-test
+          packages: ['g++-4.9', 'cmake', 'libboost1.55-all-dev']
         coverity_scan:
           project:
             name: "PrinceDhaliwal/asio"
